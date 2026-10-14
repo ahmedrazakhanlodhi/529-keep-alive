@@ -12,7 +12,7 @@ permissions:
 jobs:
   ping:
     runs-on: ubuntu-latest
-    timeout-minutes: 30
+    timeout-minutes: 45
     steps:
       - uses: actions/checkout@v4
 
@@ -26,7 +26,7 @@ jobs:
           python -m playwright install --with-deps chromium
 
       - name: Visit apps
-        run: python keepalive.py
+        run: python -u keepalive.py
 
       - name: Upload screenshots of failed apps
         if: failure()

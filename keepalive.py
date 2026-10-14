@@ -29,7 +29,7 @@ def app_is_rendered(page):
     """Streamlit Cloud serves the app inside an iframe; check every frame."""
     for frame in page.frames:
         try:
-            if frame.query_selector('[data-testid="stApp"]'):
+            if frame.query_selector('.stApp, [data-testid="stApp"], [data-testid="stAppViewContainer"]'):
                 return True
         except Exception:
             continue
